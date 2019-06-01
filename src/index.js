@@ -44,25 +44,25 @@ function createViewAllLink(nav) {
   var subNavs = nav.querySelectorAll('ul ul');
   subNavs.forEach(function(subNav) {
     // get parent subNav
-    var parentAnchor = subNav.parentNode.children[0];
+    var parentLink = subNav.parentNode.children[0];
 
     // create clone
-    var newAnchor = parentAnchor.cloneNode(true);
+    var parentLinkCopy = parentLink.cloneNode(true);
 
     // update clone text
-    var newAnchorText = 'View All ' + parentAnchor.text;
-    newAnchor.textContent = newAnchorText;
+    var parentLinkCopyText = 'View All ' + parentLink.text;
+    parentLinkCopy.textContent = parentLinkCopyText;
 
     // create viewAllLink
     var viewAllLink = document.createElement('li');
-    viewAllLink.appendChild(newAnchor);
+    viewAllLink.appendChild(parentLinkCopy);
 
     // insert viewAllLink as first subNav
     subNav.insertBefore(viewAllLink, subNav.firstChild);
 
     // remove href value from parent subNavs
-    parentAnchor.setAttribute('href', '');
-    parentAnchor.setAttribute('onClick', '');
+    parentLink.setAttribute('href', '');
+    parentLink.setAttribute('onClick', '');
 
     return;
   });
