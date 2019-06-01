@@ -14,26 +14,10 @@ var mainNavigation = document.getElementById('mainNav');
 /**
  * add CSS selectors
  */
-function addNavLevelSelectors(nav) {
-  // var level1 = document.querySelectorAll('nav > ul > li > a');
-  // var level2 = document.querySelectorAll('nav ul ul a');
-  // var level3 = document.querySelectorAll('nav ul ul ul a');
-  var parentCategories = nav.querySelectorAll('li ul');
-
-  // level1.forEach(function(subNav) {
-  //   subNav.classList.add('nav__lvl-1');
-  // });
-  // level2.forEach(function(subNav) {
-  //   subNav.classList.add('nav__lvl-2');
-  // });
-  // level3.forEach(function(subNav) {
-  //   subNav.classList.add('nav__lvl-3');
-  // });
-
-  parentCategories.forEach(function(category) {
-    if (category.parentNode) {
-    } else if (category.children) {
-    }
+function addLevelSelectors(nav) {
+  var levels = nav.querySelectorAll('ul li ul');
+  levels.forEach(function(level) {
+    console.log(level.parentNode.querySelector('a'));
   });
 }
 
@@ -43,17 +27,17 @@ function addNavLevelSelectors(nav) {
 function createViewAllLink(nav) {
   var subNavs = nav.querySelectorAll('ul ul');
   subNavs.forEach(function(subNav) {
-    // get parent subNav
-    var parentLink = subNav.parentNode.children[0];
+    // get parent link
+    var parentLink = subNav.parentNode.querySelector('a');
 
-    // create clone
+    // create parent clone
     var parentLinkCopy = parentLink.cloneNode(true);
 
-    // update clone text
+    // modify parent clone text
     var parentLinkCopyText = 'View All ' + parentLink.text;
     parentLinkCopy.textContent = parentLinkCopyText;
 
-    // create viewAllLink
+    // create viewAllLink from parent clone
     var viewAllLink = document.createElement('li');
     viewAllLink.appendChild(parentLinkCopy);
 
@@ -70,4 +54,4 @@ function createViewAllLink(nav) {
 }
 
 createViewAllLink(mainNavigation);
-addNavLevelSelectors(mainNavigation);
+addLevelSelectors(mainNavigation);
