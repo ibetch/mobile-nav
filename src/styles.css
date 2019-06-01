@@ -1,8 +1,10 @@
 body {
   font-family: sans-serif;
 }
-
-.nav-level-1 {
+li {
+  background-color: gray;
+}
+li.isParent {
   background-color: red;
 }
 .nav-level-2 {

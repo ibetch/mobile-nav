@@ -15,10 +15,18 @@ var mainNavigation = document.getElementById('mainNav');
  * add CSS selectors
  */
 function addLevelSelectors(nav) {
-  var levels = nav.querySelectorAll('ul li ul');
-  levels.forEach(function(level) {
-    console.log(level.parentNode.querySelector('a'));
+  var level1 = nav.querySelectorAll('ul ul');
+  level1.forEach(function(level) {
+    level.parentNode.setAttribute('class', 'isParent');
   });
+  var level2 = nav.querySelectorAll('li > ul');
+  //console.log(level2)
+
+  // levels.forEach(function(level) {
+  //   //console.log(level.parentNode.querySelector('a'));
+  //   //var checkRelation = level.parentNode.querySelector('a');
+  //   console.log(levels)
+  // });
 }
 
 /**
