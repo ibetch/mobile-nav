@@ -1,3 +1,13 @@
 body {
   font-family: sans-serif;
 }
+
+.nav-level-1 {
+  background-color: red;
+}
+.nav-level-2 {
+  background-color: blue;
+}
+.nav-level-3 {
+  background-color: green;
+}
